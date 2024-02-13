@@ -21,4 +21,23 @@
 		<servlet-name>abc</servlet-name>
 		<url-pattern>/sq</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>pqr</servlet-name>
+		<servlet-class>com.rajan.rai.MyServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>pqr</servlet-name>
+		<url-pattern>/home</url-pattern>
+	</servlet-mapping>
+
+	<context-param>
+		<param-name>name</param-name>
+		<param-value>Rajan</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>phone</param-name>
+		<param-value>iPhone</param-value>
+	</context-param>
 </web-app>
