@@ -2,7 +2,6 @@ package com.rajan.rai;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,9 +14,13 @@ public class AddSevlet extends HttpServlet {
 		int i = Integer.parseInt(httpServletRequest.getParameter("num1"));
 		int j = Integer.parseInt(httpServletRequest.getParameter("num2"));
 		int k = i + j;
+//
+//		httpServletRequest.setAttribute("k", k);
+//		RequestDispatcher rd = httpServletRequest.getRequestDispatcher("sq");
+//		rd.forward(httpServletRequest, httpServletResponse);
 
-		httpServletRequest.setAttribute("k", k);
-		RequestDispatcher rd = httpServletRequest.getRequestDispatcher("sq");
-		rd.forward(httpServletRequest, httpServletResponse);
+		//URL Rewriting
+		httpServletResponse.sendRedirect("sq?k=" + k);
+
 	}
 }
