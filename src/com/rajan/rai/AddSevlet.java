@@ -3,10 +3,10 @@ package com.rajan.rai;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 public class AddSevlet extends HttpServlet {
 
@@ -23,9 +23,13 @@ public class AddSevlet extends HttpServlet {
 		// URL Rewriting
 //		httpServletResponse.sendRedirect("sq?k=" + k);
 
-		HttpSession httpSession = httpServletRequest.getSession();
-		httpSession.setAttribute("k", k);
-		httpServletResponse.sendRedirect("sq");
+		// HTTP Session
+//		HttpSession httpSession = httpServletRequest.getSession();
+//		httpSession.setAttribute("k", k);
+//		httpServletResponse.sendRedirect("sq");
 
+		Cookie cookie = new Cookie("k", k + "");
+		httpServletResponse.addCookie(cookie);
+		httpServletResponse.sendRedirect("sq");
 	}
 }
