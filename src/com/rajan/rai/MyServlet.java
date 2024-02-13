@@ -3,7 +3,7 @@ package com.rajan.rai;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.servlet.ServletContext;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,11 +15,13 @@ public class MyServlet extends HttpServlet {
 		PrintWriter writer = resp.getWriter();
 		writer.print("Hi ");
 
-		ServletContext context = getServletContext();
-		String name = context.getInitParameter("name");
-		writer.print(name+" ");
+//		ServletContext context = getServletContext();
+		ServletConfig config = getServletConfig();
+//		String name = context.getInitParameter("name");
+		String name = config.getInitParameter("name");
+		writer.print(name + " ");
 
-		String phone = context.getInitParameter("phone");
-		writer.print(phone);
+//		String phone = context.getInitParameter("phone");
+//		writer.print(phone);
 	}
 }
