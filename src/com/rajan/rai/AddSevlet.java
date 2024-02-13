@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class AddSevlet extends HttpServlet {
 
@@ -19,8 +20,12 @@ public class AddSevlet extends HttpServlet {
 //		RequestDispatcher rd = httpServletRequest.getRequestDispatcher("sq");
 //		rd.forward(httpServletRequest, httpServletResponse);
 
-		//URL Rewriting
-		httpServletResponse.sendRedirect("sq?k=" + k);
+		// URL Rewriting
+//		httpServletResponse.sendRedirect("sq?k=" + k);
+
+		HttpSession httpSession = httpServletRequest.getSession();
+		httpSession.setAttribute("k", k);
+		httpServletResponse.sendRedirect("sq");
 
 	}
 }
