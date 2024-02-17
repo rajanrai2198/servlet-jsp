@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1" errorPage="error.jsp"%>
+	pageEncoding="ISO-8859-1" isErrorPage="true"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body bgcolor="Green">
-	<%
-	int k = 9 / 0;
-	%>
+<body bgcolor="red">
+	I am Error
+	<%=exception.getMessage()
+%>
 </body>
 </html>
