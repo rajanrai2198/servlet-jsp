@@ -1,9 +1,9 @@
 package com.rajan.rai;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,6 +15,8 @@ public class AddSevlet extends HttpServlet {
 		int i = Integer.parseInt(httpServletRequest.getParameter("num1"));
 		int j = Integer.parseInt(httpServletRequest.getParameter("num2"));
 		int k = i + j;
+		PrintWriter out = httpServletResponse.getWriter();
+		out.print("Sum is ::" + k);
 //
 //		httpServletRequest.setAttribute("k", k);
 //		RequestDispatcher rd = httpServletRequest.getRequestDispatcher("sq");
@@ -28,8 +30,8 @@ public class AddSevlet extends HttpServlet {
 //		httpSession.setAttribute("k", k);
 //		httpServletResponse.sendRedirect("sq");
 
-		Cookie cookie = new Cookie("k", k + "");
-		httpServletResponse.addCookie(cookie);
-		httpServletResponse.sendRedirect("sq");
+//		Cookie cookie = new Cookie("k", k + "");
+//		httpServletResponse.addCookie(cookie);
+//		httpServletResponse.sendRedirect("sq");
 	}
 }
