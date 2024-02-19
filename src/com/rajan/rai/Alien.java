@@ -14,8 +14,8 @@ public class Alien extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("In servlet");
 		PrintWriter out = resp.getWriter();
-
 		int aid = Integer.parseInt(req.getParameter("aid"));
 		String alienName = req.getParameter("aname");
 		out.print("Hi " + alienName);
