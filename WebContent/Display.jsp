@@ -4,6 +4,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
+
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,9 +35,27 @@
 		url="jdbc:mysql://localhost:3306/db_2024" user="root" password="root" />
 
 	<sql:query var="rs" dataSource="${db}">select * from student</sql:query>
-	
+
 	<c:forEach items="${rs.rows}" var="student">
-	<br><c:out value="${student.roll_no }"></c:out> : <c:out value="${student.marks }"></c:out> : <c:out value="${student.name }"></c:out>
+		<br>
+		<c:out value="${student.roll_no }"></c:out> : <c:out
+			value="${student.marks }"></c:out> : <c:out value="${student.name }"></c:out>
 	</c:forEach>
+
+	<c:set var="data" value="I am Rajan Rai from Panipat No" />
+
+	<br>Length :
+	<c:out value="${fn:length(data)}"></c:out>
+	<c:forEach items="${fn:split(data, 'Ra')}" var="s">
+	<br>
+	${s }
+	</c:forEach>
+	
+	${fn:toUpperCase(data) }
+	
+	<c:if test="${fn:endsWith(data, 'Panipat') }" >
+	 I am in Panipat
+	</c:if>
+
 </body>
 </html>
